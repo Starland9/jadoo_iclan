@@ -19,11 +19,34 @@ class $AssetsImagesGen {
   AssetGenImage get topWoman =>
       const AssetGenImage('assets/images/TopWoman.png');
 
+  /// Directory path: assets/images/destinations
+  $AssetsImagesDestinationsGen get destinations =>
+      const $AssetsImagesDestinationsGen();
+
   /// Directory path: assets/images/svg
   $AssetsImagesSvgGen get svg => const $AssetsImagesSvgGen();
 
   /// List of all assets
   List<AssetGenImage> get values => [topWoman];
+}
+
+class $AssetsImagesDestinationsGen {
+  const $AssetsImagesDestinationsGen();
+
+  /// File path: assets/images/destinations/FullEurope.png
+  AssetGenImage get fullEurope =>
+      const AssetGenImage('assets/images/destinations/FullEurope.png');
+
+  /// File path: assets/images/destinations/LondonUk.jpeg
+  AssetGenImage get londonUk =>
+      const AssetGenImage('assets/images/destinations/LondonUk.jpeg');
+
+  /// File path: assets/images/destinations/RomeItaly.png
+  AssetGenImage get romeItaly =>
+      const AssetGenImage('assets/images/destinations/RomeItaly.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [fullEurope, londonUk, romeItaly];
 }
 
 class $AssetsImagesSvgGen {

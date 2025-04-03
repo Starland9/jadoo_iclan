@@ -28,8 +28,8 @@ class JadooApp extends StatelessWidget {
                 .apply(fontSizeFactor: 1.sp)
                 .apply(
                   fontFamily: GoogleFonts.poppins().fontFamily,
-                  displayColor: Colors.black,
-                  bodyColor: Colors.black,
+                  displayColor: context.colors.headerSubText,
+                  bodyColor: context.colors.headerSubText,
                 ),
             elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jadoo_iclan/gen/assets.gen.dart';
-import 'package:jadoo_iclan/src/shared/widgets/header/navlinks.dart';
+import 'package:jadoo_iclan/src/shared/widgets/navlinks.dart';
 
 class Navbar extends StatelessWidget {
   const Navbar({super.key});
