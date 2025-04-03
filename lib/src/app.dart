@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jadoo_iclan/src/core/constants/app_colors.dart';
 import 'package:jadoo_iclan/src/core/constants/app_strings.dart';
 import 'package:jadoo_iclan/src/core/extensions/context_x.dart';
 import 'package:jadoo_iclan/src/screens/landing/landing_screen.dart';
@@ -32,6 +31,21 @@ class JadooApp extends StatelessWidget {
                   displayColor: Colors.black,
                   bodyColor: Colors.black,
                 ),
+            elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: context.colors.buttonBg,
+                foregroundColor: Colors.white,
+                fixedSize: Size.fromHeight(60.h),
+                elevation: 0,
+                padding: EdgeInsets.symmetric(horizontal: 30.w),
+                shadowColor: context.colors.buttonBg,
+
+                textStyle: GoogleFonts.poppins(fontSize: 16.sp),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                ),
+              ),
+            ),
           ),
           home: child,
         );

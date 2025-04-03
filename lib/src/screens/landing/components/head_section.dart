@@ -13,6 +13,7 @@ class HeadSection extends StatelessWidget {
       children: [
         Expanded(
           child: Column(
+            spacing: 20.h,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -23,9 +24,8 @@ class HeadSection extends StatelessWidget {
                   fontSize: 20.sp,
                 ),
               ),
-              const SizedBox(height: 20),
               Text(
-                "Travel, enjoy and live a and full life",
+                "Travel, enjoy and live a new and full life",
                 style: GoogleFonts.volkhov().copyWith(
                   color: context.colors.darkBlue,
                   fontWeight: FontWeight.bold,
@@ -33,6 +33,46 @@ class HeadSection extends StatelessWidget {
                   letterSpacing: -4,
                   height: 1,
                 ),
+              ),
+              Text(
+                "Built Wicket longer admire do barton vanity itself do in it.\nPreferred to sportsmen it engrossed listening. Park gate \nsell they west hard for the.",
+                style: TextStyle(color: context.colors.headerSubText),
+              ),
+              Row(
+                children: [
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text("Find out more"),
+                  ),
+                  const SizedBox(width: 50),
+                  InkWell(
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(12.w),
+                          decoration: BoxDecoration(
+                            color: context.colors.orange,
+                            boxShadow: [
+                              BoxShadow(
+                                color: context.colors.orange.withValues(
+                                  alpha: 0.5,
+                                ),
+                                blurRadius: 10,
+                                spreadRadius: 0,
+                              ),
+                            ],
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            Icons.play_arrow,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text("  Play Demo"),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

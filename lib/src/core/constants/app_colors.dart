@@ -9,4 +9,6 @@ class AppColors {
 
   Color get orange => Color(0xFFDF6951);
   Color get darkBlue => Color(0xFF181E4B);
+  Color get headerSubText => Color(0xFF5E6282);
+  Color get buttonBg => Color(0xFFf1a501);
 }
