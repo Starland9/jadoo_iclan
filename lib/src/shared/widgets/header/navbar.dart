@@ -8,7 +8,11 @@ class Navbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      
-      children: [Assets.images.svg.logo.svg(), Navlinks()]);
+      children: [
+        Assets.images.svg.logo.svg(),
+        Spacer(),
+        Expanded(flex: 3, child: Navlinks()),
+      ],
+    );
   }
 }

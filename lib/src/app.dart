@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:jadoo_iclan/src/core/constants/app_colors.dart';
 import 'package:jadoo_iclan/src/core/constants/app_strings.dart';
 import 'package:jadoo_iclan/src/screens/landing/landing_screen.dart';
@@ -23,7 +24,13 @@ class JadooApp extends StatelessWidget {
               seedColor: AppColors.primary,
               primary: AppColors.primary,
             ),
-            textTheme: Typography.englishLike2021.apply(fontSizeFactor: 1.sp),
+            textTheme: Typography.englishLike2021
+                .apply(fontSizeFactor: 1.sp)
+                .apply(
+                  fontFamily: GoogleFonts.poppins().fontFamily,
+                  displayColor: Colors.black,
+                  bodyColor: Colors.black,
+                ),
           ),
           home: child,
         );
