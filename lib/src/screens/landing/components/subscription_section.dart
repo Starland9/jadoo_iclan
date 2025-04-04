@@ -88,7 +88,7 @@ class SubscriptionSection extends StatelessWidget {
         ),
         filled: true,
         fillColor: context.colors.white,
-        contentPadding: EdgeInsets.symmetric(vertical: 24.h, horizontal: 100.w),
+        contentPadding: EdgeInsets.only(top: 24.h, left: 100.w, bottom: 24.h),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.r),
           borderSide: BorderSide.none,

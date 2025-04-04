@@ -34,8 +34,12 @@ class Footer extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children:
-                  _children(context).map((e) => Expanded(child: e)).toList(),
+              children: [
+                Expanded(child: _children(context)[0]),
+                ..._children(
+                  context,
+                ).sublist(1, 5).map((e) => Flexible(child: e)),
+              ],
             )
           else
             Column(
@@ -83,9 +87,13 @@ class Footer extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            for (var social in socials)
-              Padding(
-                padding: EdgeInsets.only(top: 8.h),
+            for (final social in socials)
+              Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: context.colors.headerSubText.withValues(alpha: 0.1),
+                ),
+                padding: EdgeInsets.only(top: 4.h),
                 child: InkWell(child: SvgPicture.asset(social.$1)),
               ),
           ],

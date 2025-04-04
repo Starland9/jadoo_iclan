@@ -39,7 +39,7 @@ class _LandingScreenState extends State<LandingScreen> {
           ),
           itemBuilder: (BuildContext context, int index) {
             return FadeInLeft(
-              from: index % 2 == 0 ? -400 : 400,
+              from: index % 2 == 0 ? -400.w : 400.w,
               duration: Duration(milliseconds: 1200),
               delay: Duration(microseconds: 1000 * index),
               key: ValueKey(index),
@@ -47,7 +47,7 @@ class _LandingScreenState extends State<LandingScreen> {
             );
           },
           separatorBuilder: (BuildContext context, int index) {
-            return SizedBox(height: 32.h);
+            return SizedBox(height: 60.h);
           },
         ),
       ),

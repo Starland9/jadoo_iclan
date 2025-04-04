@@ -38,7 +38,7 @@ class SectionsHead extends StatelessWidget {
           textAlign: centered ? TextAlign.center : TextAlign.start,
           style: GoogleFonts.volkhov(
             fontWeight: FontWeight.bold,
-            fontSize: 50.sp,
+            fontSize: 40.sp,
             color: context.colors.darkBlue,
           ),
         ),

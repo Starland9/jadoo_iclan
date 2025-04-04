@@ -106,6 +106,10 @@ class $AssetsImagesSvgGen {
   SvgGenImage get bestFlights =>
       const SvgGenImage('assets/images/svg/BestFlights.svg');
 
+  /// File path: assets/images/svg/BottomGradien.svg
+  SvgGenImage get bottomGradien =>
+      const SvgGenImage('assets/images/svg/BottomGradien.svg');
+
   /// File path: assets/images/svg/CalculatedWeather.svg
   SvgGenImage get calculatedWeather =>
       const SvgGenImage('assets/images/svg/CalculatedWeather.svg');
@@ -168,6 +172,7 @@ class $AssetsImagesSvgGen {
   List<SvgGenImage> get values => [
     appStore,
     bestFlights,
+    bottomGradien,
     calculatedWeather,
     chooseDestination,
     customization,
