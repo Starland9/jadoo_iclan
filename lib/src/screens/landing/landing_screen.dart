@@ -7,6 +7,8 @@ import 'package:jadoo_iclan/src/screens/landing/components/category_section.dart
 import 'package:jadoo_iclan/src/screens/landing/components/destinations_section.dart';
 import 'package:jadoo_iclan/src/screens/landing/components/easy_and_fast_section.dart';
 import 'package:jadoo_iclan/src/screens/landing/components/head_section.dart';
+import 'package:jadoo_iclan/src/screens/landing/components/subscription_section.dart';
+import 'package:jadoo_iclan/src/screens/landing/components/testimonials_section.dart';
 import 'package:jadoo_iclan/src/shared/widgets/footer.dart';
 import 'package:jadoo_iclan/src/shared/widgets/landing_background.dart';
 import 'package:jadoo_iclan/src/shared/widgets/navbar.dart';
@@ -29,7 +31,7 @@ class _LandingScreenState extends State<LandingScreen> {
         key: _scaffoldKey,
         endDrawer: context.isDesktopLayout ? null : const Navlinks(),
         backgroundColor: Colors.transparent,
-        body: ListView.builder(
+        body: ListView.separated(
           itemCount: _widgets.length,
           padding: EdgeInsets.symmetric(
             horizontal: context.isDesktopLayout ? 140.w : 32.w,
@@ -44,6 +46,9 @@ class _LandingScreenState extends State<LandingScreen> {
               child: _widgets[index],
             );
           },
+          separatorBuilder: (BuildContext context, int index) {
+            return SizedBox(height: 32.h);
+          },
         ),
       ),
     );
@@ -56,9 +61,9 @@ class _LandingScreenState extends State<LandingScreen> {
       CategorySection(),
       DestinationsSection(),
       EasyAndFastSection(),
-      // TestimonialsSection(),
+      TestimonialsSection(),
       BrandsSection(),
-      // SubscriptionSection(),
+      SubscriptionSection(),
       Footer(),
     ];
   }

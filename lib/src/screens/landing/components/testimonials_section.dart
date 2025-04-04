@@ -46,20 +46,24 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
         ],
       );
     } else {
-      return Column(children: [_buildLeft(context)]);
+      return Column(children: [_buildLeft(context), _buildRight()]);
     }
   }
 
-  Row _buildRight() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [_buildSwiper(), _buildArrows()],
-    );
+  Widget _buildRight() {
+    if (context.isDesktopLayout) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [_buildSwiper(), _buildArrows()],
+      );
+    }
+
+    return _buildSwiper();
   }
 
   Column _buildLeft(BuildContext context) {
     return Column(
-      spacing: context.isDesktopLayout ? 64.h : 32.h,
+      spacing: context.isDesktopLayout ? 64.h : 16.h,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SectionsHead(
@@ -97,7 +101,6 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
         numberOfCardsDisplayed: 2,
         onSwipe: _onSwipe,
         scale: 1,
-
         backCardOffset: Offset(70.w, 80.h),
         cardBuilder: (
           context,

@@ -40,7 +40,7 @@ class JadooApp extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: context.colors.buttonBg,
                 foregroundColor: Colors.white,
-                minimumSize: Size.fromHeight(60.h),
+                fixedSize: Size.fromHeight(60.h),
 
                 elevation: 0,
                 shadowColor: context.colors.buttonBg,
