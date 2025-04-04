@@ -47,7 +47,9 @@ class _LandingScreenState extends State<LandingScreen> {
             );
           },
           separatorBuilder: (BuildContext context, int index) {
-            return SizedBox(height: 60.h);
+            return context.isDesktopLayout
+                ? SizedBox(height: 16.h)
+                : SizedBox(height: 40.h);
           },
         ),
       ),
@@ -58,6 +60,7 @@ class _LandingScreenState extends State<LandingScreen> {
     return [
       Navbar(scaffoldKey: _scaffoldKey),
       HeadSection(),
+      SizedBox(height: 60.h),
       CategorySection(),
       DestinationsSection(),
       EasyAndFastSection(),
