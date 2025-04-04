@@ -72,9 +72,9 @@ class Footer extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Flexible(child: Assets.images.svg.googlePlay.svg()),
+              Expanded(child: Assets.images.svg.googlePlay.svg()),
               SizedBox(width: 8.w),
-              Flexible(child: Assets.images.svg.appStore.svg()),
+              Expanded(child: Assets.images.svg.appStore.svg()),
             ],
           ),
         ],
