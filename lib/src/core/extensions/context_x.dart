@@ -6,4 +6,15 @@ extension ContextX on BuildContext {
   ColorScheme get cs => Theme.of(this).colorScheme;
 
   AppColors get colors => AppColors(context: this);
+
+  bool get isMobileLayout => MediaQuery.of(this).size.width < 600;
+  bool get isTabletLayout =>
+      MediaQuery.of(this).size.width >= 600 &&
+      MediaQuery.of(this).size.width < 1200;
+
+  bool get isDesktopLayout => MediaQuery.of(this).size.width >= 1200;
+
+  bool get isMobileOrTablet => isMobileLayout || isTabletLayout;
+
+  Axis get flexAxis => !isDesktopLayout ? Axis.vertical : Axis.horizontal;
 }

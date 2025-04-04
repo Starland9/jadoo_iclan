@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jadoo_iclan/gen/assets.gen.dart';
+import 'package:jadoo_iclan/src/core/extensions/context_x.dart';
 
 class Navlinks extends StatelessWidget {
   const Navlinks({super.key});
@@ -16,14 +19,43 @@ class Navlinks extends StatelessWidget {
 
     final Map<String, String> languages = {'EN': 'EN', 'FR': 'FR'};
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    if (context.isDesktopLayout) {
+      return _buildLinks(context, links, languages);
+    }
+    return Drawer(
+      backgroundColor: context.colors.white,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 64.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            DrawerHeader(child: Assets.images.svg.logo.svg()),
+            _buildLinks(context, links, languages),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Flex _buildLinks(
+    BuildContext context,
+    Map<String, String> links,
+    Map<String, String> languages,
+  ) {
+    return Flex(
+      spacing: context.isDesktopLayout ? 0 : 32.w,
+      crossAxisAlignment:
+          context.isDesktopLayout
+              ? CrossAxisAlignment.center
+              : CrossAxisAlignment.start,
+      mainAxisAlignment:
+          context.isDesktopLayout
+              ? MainAxisAlignment.spaceEvenly
+              : MainAxisAlignment.start,
+      direction: context.flexAxis,
       children: [
         for (var link in links.entries)
-          TextButton(
-            onPressed: () {},
-            child: Text(link.key, style: _linksTextStyle()),
-          ),
+          InkWell(child: Text(link.key, style: _linksTextStyle(context))),
         OutlinedButton(
           onPressed: () {},
           style: OutlinedButton.styleFrom(
@@ -32,7 +64,7 @@ class Navlinks extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(4)),
             ),
           ),
-          child: Text("Sign up", style: _linksTextStyle()),
+          child: Text("Sign up", style: _linksTextStyle(context)),
         ),
         DropdownButton(
           value: 'EN',
@@ -49,12 +81,16 @@ class Navlinks extends StatelessWidget {
           borderRadius: BorderRadius.circular(4),
           icon: const Icon(Icons.keyboard_arrow_down_rounded, size: 16),
           focusColor: Colors.transparent,
-          style: _linksTextStyle().copyWith(color: Colors.black),
+          style: _linksTextStyle(context).copyWith(color: Colors.black),
         ),
       ],
     );
   }
 
-  TextStyle _linksTextStyle() =>
-      GoogleFonts.roboto().copyWith(fontSize: 17, fontWeight: FontWeight.w700);
+  TextStyle _linksTextStyle(BuildContext context) =>
+      GoogleFonts.roboto().copyWith(
+        fontSize: 17,
+        fontWeight: FontWeight.w700,
+        color: context.colors.black,
+      );
 }
