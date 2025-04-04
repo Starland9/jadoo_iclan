@@ -18,6 +18,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/Avatar.png
   AssetGenImage get avatar => const AssetGenImage('assets/images/Avatar.png');
 
+  /// File path: assets/images/Subscription.png
+  AssetGenImage get subscription =>
+      const AssetGenImage('assets/images/Subscription.png');
+
   /// File path: assets/images/TopWoman.png
   AssetGenImage get topWoman =>
       const AssetGenImage('assets/images/TopWoman.png');
@@ -37,7 +41,12 @@ class $AssetsImagesGen {
   $AssetsImagesSvgGen get svg => const $AssetsImagesSvgGen();
 
   /// List of all assets
-  List<AssetGenImage> get values => [avatar, topWoman, tripToGreece];
+  List<AssetGenImage> get values => [
+    avatar,
+    subscription,
+    topWoman,
+    tripToGreece,
+  ];
 }
 
 class $AssetsImagesBrandsGen {
@@ -89,6 +98,10 @@ class $AssetsImagesDestinationsGen {
 class $AssetsImagesSvgGen {
   const $AssetsImagesSvgGen();
 
+  /// File path: assets/images/svg/App Store.svg
+  SvgGenImage get appStore =>
+      const SvgGenImage('assets/images/svg/App Store.svg');
+
   /// File path: assets/images/svg/BestFlights.svg
   SvgGenImage get bestFlights =>
       const SvgGenImage('assets/images/svg/BestFlights.svg');
@@ -108,6 +121,22 @@ class $AssetsImagesSvgGen {
   /// File path: assets/images/svg/Decore.svg
   SvgGenImage get decore => const SvgGenImage('assets/images/svg/Decore.svg');
 
+  /// File path: assets/images/svg/EmailIcon.svg
+  SvgGenImage get emailIcon =>
+      const SvgGenImage('assets/images/svg/EmailIcon.svg');
+
+  /// File path: assets/images/svg/FacebookLogo.svg
+  SvgGenImage get facebookLogo =>
+      const SvgGenImage('assets/images/svg/FacebookLogo.svg');
+
+  /// File path: assets/images/svg/Google Play.svg
+  SvgGenImage get googlePlay =>
+      const SvgGenImage('assets/images/svg/Google Play.svg');
+
+  /// File path: assets/images/svg/InstagramLogo.svg
+  SvgGenImage get instagramLogo =>
+      const SvgGenImage('assets/images/svg/InstagramLogo.svg');
+
   /// File path: assets/images/svg/LocalEvents.svg
   SvgGenImage get localEvents =>
       const SvgGenImage('assets/images/svg/LocalEvents.svg');
@@ -123,17 +152,37 @@ class $AssetsImagesSvgGen {
   SvgGenImage get reachAirport =>
       const SvgGenImage('assets/images/svg/ReachAirport.svg');
 
+  /// File path: assets/images/svg/SubscriptionBg.svg
+  SvgGenImage get subscriptionBg =>
+      const SvgGenImage('assets/images/svg/SubscriptionBg.svg');
+
+  /// File path: assets/images/svg/SubscriptionSend.svg
+  SvgGenImage get subscriptionSend =>
+      const SvgGenImage('assets/images/svg/SubscriptionSend.svg');
+
+  /// File path: assets/images/svg/TwitterLogo.svg
+  SvgGenImage get twitterLogo =>
+      const SvgGenImage('assets/images/svg/TwitterLogo.svg');
+
   /// List of all assets
   List<SvgGenImage> get values => [
+    appStore,
     bestFlights,
     calculatedWeather,
     chooseDestination,
     customization,
     decore,
+    emailIcon,
+    facebookLogo,
+    googlePlay,
+    instagramLogo,
     localEvents,
     logo,
     makePayment,
     reachAirport,
+    subscriptionBg,
+    subscriptionSend,
+    twitterLogo,
   ];
 }
 

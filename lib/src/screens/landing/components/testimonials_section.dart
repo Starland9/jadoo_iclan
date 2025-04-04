@@ -84,7 +84,7 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
   SizedBox _buildSwiper() {
     return SizedBox(
       width: 500.w,
-      height: 300.h,
+      height: 350.h,
       child: CardSwiper(
         controller: _cardSwiperController,
         cardsCount: _testimonials.length,

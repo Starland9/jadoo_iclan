@@ -12,4 +12,9 @@ class AppColors {
   Color get headerSubText => Color(0xFF5E6282);
   Color get buttonBg => Color(0xFFf1a501);
   Color get white => Colors.white;
+  Color get lightPurple => Color(0xFFDFD7F9);
+
+  // BUTTONS
+  Color get btnTopGradient => Color(0xFFff926d);
+  Color get btnBottomGradient => Color(0xFFff7d68);
 }
