@@ -12,7 +12,12 @@ class JadooApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(1440, 810),
+      designSize:
+          context.isMobileLayout
+              ? Size(375, 812)
+              : context.isTabletLayout
+              ? Size(768, 1024)
+              : Size(1440, 810),
       minTextAdapt: true,
       builder: (_, child) {
         return MaterialApp(

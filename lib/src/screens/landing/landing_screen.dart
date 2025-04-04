@@ -33,7 +33,10 @@ class _LandingScreenState extends State<LandingScreen> {
         backgroundColor: Colors.transparent,
         body: ListView.builder(
           itemCount: _widgets.length,
-          padding: EdgeInsets.symmetric(horizontal: 140.w, vertical: 47.h),
+          padding: EdgeInsets.symmetric(
+            horizontal: context.isDesktopLayout ? 140.w : 32.w,
+            vertical: context.isDesktopLayout ? 50.h : 32.h,
+          ),
           itemBuilder: (BuildContext context, int index) {
             return FadeInLeft(
               from: index % 2 == 0 ? -400 : 400,
