@@ -4,6 +4,7 @@ import 'package:jadoo_iclan/src/screens/landing/components/category_section.dart
 import 'package:jadoo_iclan/src/screens/landing/components/destinations_section.dart';
 import 'package:jadoo_iclan/src/screens/landing/components/easy_and_fast_section.dart';
 import 'package:jadoo_iclan/src/screens/landing/components/head_section.dart';
+import 'package:jadoo_iclan/src/screens/landing/components/testimonials_section.dart';
 import 'package:jadoo_iclan/src/shared/widgets/landing_background.dart';
 import 'package:jadoo_iclan/src/shared/widgets/navbar.dart';
 
@@ -23,6 +24,7 @@ class LandingScreen extends StatelessWidget {
             CategorySection(),
             DestinationsSection(),
             EasyAndFastSection(),
+            TestimonialsSection(),
           ],
         ),
       ),

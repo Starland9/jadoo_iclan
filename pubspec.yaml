@@ -39,6 +39,9 @@ dependencies:
   animate_do: ^4.2.0
   flutter_gen: ^5.10.0
   flutter_svg: ^2.0.17
+  flutter_card_swiper: ^7.0.2
+  smooth_page_indicator: ^1.2.1
+  faker: ^2.2.0
 
 dev_dependencies:
   flutter_test:
