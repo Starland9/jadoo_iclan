@@ -26,6 +26,9 @@ class $AssetsImagesGen {
   AssetGenImage get tripToGreece =>
       const AssetGenImage('assets/images/TripToGreece.png');
 
+  /// Directory path: assets/images/brands
+  $AssetsImagesBrandsGen get brands => const $AssetsImagesBrandsGen();
+
   /// Directory path: assets/images/destinations
   $AssetsImagesDestinationsGen get destinations =>
       const $AssetsImagesDestinationsGen();
@@ -35,6 +38,33 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [avatar, topWoman, tripToGreece];
+}
+
+class $AssetsImagesBrandsGen {
+  const $AssetsImagesBrandsGen();
+
+  /// File path: assets/images/brands/Alitalia.png
+  AssetGenImage get alitalia =>
+      const AssetGenImage('assets/images/brands/Alitalia.png');
+
+  /// File path: assets/images/brands/Axon.png
+  AssetGenImage get axon =>
+      const AssetGenImage('assets/images/brands/Axon.png');
+
+  /// File path: assets/images/brands/Expedia.png
+  AssetGenImage get expedia =>
+      const AssetGenImage('assets/images/brands/Expedia.png');
+
+  /// File path: assets/images/brands/JetStar.png
+  AssetGenImage get jetStar =>
+      const AssetGenImage('assets/images/brands/JetStar.png');
+
+  /// File path: assets/images/brands/Qantas.png
+  AssetGenImage get qantas =>
+      const AssetGenImage('assets/images/brands/Qantas.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [alitalia, axon, expedia, jetStar, qantas];
 }
 
 class $AssetsImagesDestinationsGen {
