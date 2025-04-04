@@ -144,13 +144,13 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
         "location": "Lahore, Pakistan",
       },
       {
-        "text": faker.lorem.sentence() * 3,
+        "text": faker.lorem.sentence() * 2,
         "avatar": Assets.images.avatar.path,
         "name": faker.person.name(),
         "location": "Lahore, Pakistan",
       },
       {
-        "text": faker.lorem.sentence() * 3,
+        "text": faker.lorem.sentence() * 2,
         "avatar": Assets.images.avatar.path,
         "name": "Landry Simo",
         "location": "Douala, Cameroun",
@@ -172,9 +172,11 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
     CardSwiperDirection direction,
   ) {
     setState(() {
-      if (direction == CardSwiperDirection.top) {
+      if (direction == CardSwiperDirection.top ||
+          direction == CardSwiperDirection.left) {
         _currentIndex--;
-      } else if (direction == CardSwiperDirection.bottom) {
+      } else if (direction == CardSwiperDirection.bottom ||
+          direction == CardSwiperDirection.right) {
         _currentIndex++;
       }
     });
