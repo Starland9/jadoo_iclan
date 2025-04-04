@@ -35,12 +35,11 @@ class JadooApp extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: context.colors.buttonBg,
                 foregroundColor: Colors.white,
-                fixedSize: Size.fromHeight(60.h),
+                minimumSize: Size.fromHeight(60.h),
+
                 elevation: 0,
-                padding: EdgeInsets.symmetric(horizontal: 30.w),
                 shadowColor: context.colors.buttonBg,
 
-                textStyle: GoogleFonts.poppins(fontSize: 16.sp),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10.r)),
                 ),
