@@ -1,7 +1,5 @@
 
----  
 
-```md
 # 🚀 Jadoo Landing Page (For ICLAN TEST)
 
 Un projet **Flutter** conçu pour une landing page moderne et responsive.  
@@ -23,6 +21,7 @@ Il est structuré de manière modulaire pour une meilleure organisation du code.
 
 ## 📂 **Structure du projet**
 
+```
 lib
 ├── gen                   # Assets générés automatiquement
 │   └── assets.gen.dart  
