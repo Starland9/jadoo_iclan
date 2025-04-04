@@ -47,13 +47,16 @@ class SubscriptionSection extends StatelessWidget {
             ],
           ),
         ),
-        Positioned(
-          top: -16.h,
-
-          right: -32.w,
-          child: Assets.images.svg.subscriptionSend.svg(),
-        ),
+        _buildSender(),
       ],
+    );
+  }
+
+  Positioned _buildSender() {
+    return Positioned(
+      top: -16.h,
+      right: -32.w,
+      child: Assets.images.svg.subscriptionSend.svg(),
     );
   }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jadoo_iclan/gen/assets.gen.dart';
+import 'package:jadoo_iclan/src/core/extensions/context_x.dart';
 import 'package:jadoo_iclan/src/screens/landing/components/step_list_tile.dart';
 import 'package:jadoo_iclan/src/shared/widgets/sections_head.dart';
 
@@ -31,28 +32,36 @@ class EasyAndFastSection extends StatelessWidget {
       },
     ];
 
-    return Row(
+    if (context.isDesktopLayout) {
+      return Row(
+        children: [
+          Expanded(child: _buildLeft(steps)),
+          Expanded(child: Assets.images.tripToGreece.image()),
+        ],
+      );
+    } else {
+      return Column(
+        children: [_buildLeft(steps), Assets.images.tripToGreece.image()],
+      );
+    }
+  }
+
+  Column _buildLeft(List<Map<String, dynamic>> steps) {
+    return Column(
+      spacing: 32.h,
       children: [
-        Expanded(
-          child: Column(
-            spacing: 32.h,
-            children: [
-              SectionsHead(
-                title: "Easy and Fast",
-                subtitle: "Book your next trip in 3 easy steps",
-                centered: false,
-                titleFontFamily: GoogleFonts.poppins().fontFamily,
-              ),
-              for (final step in steps)
-                StepListTile(
-                  title: step["title"],
-                  subtitle: step["subtitle"],
-                  iconPath: step["iconPath"],
-                ),
-            ],
-          ),
+        SectionsHead(
+          title: "Easy and Fast",
+          subtitle: "Book your next trip in 3 easy steps",
+          centered: false,
+          titleFontFamily: GoogleFonts.poppins().fontFamily,
         ),
-        Expanded(child: Assets.images.tripToGreece.image()),
+        for (final step in steps)
+          StepListTile(
+            title: step["title"],
+            subtitle: step["subtitle"],
+            iconPath: step["iconPath"],
+          ),
       ],
     );
   }

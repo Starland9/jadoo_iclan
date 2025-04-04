@@ -37,31 +37,37 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
 
   @override
   Widget build(BuildContext context) {
+    if (context.isDesktopLayout) {
+      return Row(
+        children: [
+          Expanded(flex: 2, child: _buildLeft(context)),
+          SizedBox(width: 64.w),
+          Expanded(flex: 3, child: _buildRight()),
+        ],
+      );
+    } else {
+      return Column(children: [_buildLeft(context)]);
+    }
+  }
+
+  Row _buildRight() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [_buildSwiper(), _buildArrows()],
+    );
+  }
+
+  Column _buildLeft(BuildContext context) {
+    return Column(
+      spacing: context.isDesktopLayout ? 64.h : 32.h,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(
-          flex: 2,
-          child: Column(
-            spacing: 64.h,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SectionsHead(
-                title: "TESTIMONIALS",
-                subtitle: "What people say about Us.",
-                centered: false,
-              ),
-              _buildDots(context),
-            ],
-          ),
+        SectionsHead(
+          title: "TESTIMONIALS",
+          subtitle: "What people say about Us.",
+          centered: false,
         ),
-        SizedBox(width: 64.w),
-        Expanded(
-          flex: 3,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [_buildSwiper(), _buildArrows()],
-          ),
-        ),
+        _buildDots(context),
       ],
     );
   }
@@ -84,7 +90,7 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
   SizedBox _buildSwiper() {
     return SizedBox(
       width: 500.w,
-      height: 350.h,
+      height: 500.h,
       child: CardSwiper(
         controller: _cardSwiperController,
         cardsCount: _testimonials.length,
