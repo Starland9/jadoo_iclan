@@ -21,7 +21,7 @@ class CategorySection extends StatelessWidget {
         "Engrossed listening. Park gate sell they west hard for the.",
       ),
       (
-        Assets.images.svg.localEvents.path,
+        Assets.images.localEvents.path,
         "Local Events",
         "Barton vanity itself do in it. Preferd to men it engrossed listening.",
       ),

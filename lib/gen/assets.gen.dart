@@ -18,6 +18,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/Avatar.png
   AssetGenImage get avatar => const AssetGenImage('assets/images/Avatar.png');
 
+  /// File path: assets/images/LocalEvents.png
+  AssetGenImage get localEvents =>
+      const AssetGenImage('assets/images/LocalEvents.png');
+
   /// File path: assets/images/Subscription.png
   AssetGenImage get subscription =>
       const AssetGenImage('assets/images/Subscription.png');
@@ -43,6 +47,7 @@ class $AssetsImagesGen {
   /// List of all assets
   List<AssetGenImage> get values => [
     avatar,
+    localEvents,
     subscription,
     topWoman,
     tripToGreece,
@@ -114,6 +119,10 @@ class $AssetsImagesSvgGen {
   SvgGenImage get calculatedWeather =>
       const SvgGenImage('assets/images/svg/CalculatedWeather.svg');
 
+  /// File path: assets/images/svg/CategoryHoverRed.svg
+  SvgGenImage get categoryHoverRed =>
+      const SvgGenImage('assets/images/svg/CategoryHoverRed.svg');
+
   /// File path: assets/images/svg/ChooseDestination.svg
   SvgGenImage get chooseDestination =>
       const SvgGenImage('assets/images/svg/ChooseDestination.svg');
@@ -174,6 +183,7 @@ class $AssetsImagesSvgGen {
     bestFlights,
     bottomGradien,
     calculatedWeather,
+    categoryHoverRed,
     chooseDestination,
     customization,
     decore,
