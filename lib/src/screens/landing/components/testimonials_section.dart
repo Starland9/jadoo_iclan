@@ -37,31 +37,41 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    if (context.isDesktopLayout) {
+      return Row(
+        children: [
+          Expanded(flex: 2, child: _buildLeft(context)),
+          SizedBox(width: 64.w),
+          Expanded(flex: 3, child: _buildRight()),
+        ],
+      );
+    } else {
+      return Column(children: [_buildLeft(context), _buildRight()]);
+    }
+  }
+
+  Widget _buildRight() {
+    if (context.isDesktopLayout) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [_buildSwiper(), _buildArrows()],
+      );
+    }
+
+    return _buildSwiper();
+  }
+
+  Column _buildLeft(BuildContext context) {
+    return Column(
+      spacing: context.isDesktopLayout ? 64.h : 16.h,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(
-          flex: 2,
-          child: Column(
-            spacing: 64.h,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SectionsHead(
-                title: "TESTIMONIALS",
-                subtitle: "What people say about Us.",
-                centered: false,
-              ),
-              _buildDots(context),
-            ],
-          ),
+        SectionsHead(
+          title: "TESTIMONIALS",
+          subtitle: "What people say about Us.",
+          centered: false,
         ),
-        SizedBox(width: 64.w),
-        Expanded(
-          flex: 3,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [_buildSwiper(), _buildArrows()],
-          ),
-        ),
+        _buildDots(context),
       ],
     );
   }
@@ -84,14 +94,13 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
   SizedBox _buildSwiper() {
     return SizedBox(
       width: 500.w,
-      height: 350.h,
+      height: 500.h,
       child: CardSwiper(
         controller: _cardSwiperController,
         cardsCount: _testimonials.length,
         numberOfCardsDisplayed: 2,
         onSwipe: _onSwipe,
         scale: 1,
-
         backCardOffset: Offset(70.w, 80.h),
         cardBuilder: (
           context,
@@ -135,13 +144,13 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
         "location": "Lahore, Pakistan",
       },
       {
-        "text": faker.lorem.sentence() * 3,
+        "text": faker.lorem.sentence() * 2,
         "avatar": Assets.images.avatar.path,
         "name": faker.person.name(),
         "location": "Lahore, Pakistan",
       },
       {
-        "text": faker.lorem.sentence() * 3,
+        "text": faker.lorem.sentence() * 2,
         "avatar": Assets.images.avatar.path,
         "name": "Landry Simo",
         "location": "Douala, Cameroun",
@@ -163,9 +172,11 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
     CardSwiperDirection direction,
   ) {
     setState(() {
-      if (direction == CardSwiperDirection.top) {
+      if (direction == CardSwiperDirection.top ||
+          direction == CardSwiperDirection.left) {
         _currentIndex--;
-      } else if (direction == CardSwiperDirection.bottom) {
+      } else if (direction == CardSwiperDirection.bottom ||
+          direction == CardSwiperDirection.right) {
         _currentIndex++;
       }
     });

@@ -55,12 +55,12 @@ class TestimonialCard extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: -40.h,
-          left: -40.h,
+          top: -20.h,
+          left: -20.w,
 
           child: CircleAvatar(
             backgroundImage: AssetImage(avatarPath),
-            radius: 68 / 2.5.w,
+            radius: 32.sp,
           ),
         ),
       ],

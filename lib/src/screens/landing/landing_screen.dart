@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:jadoo_iclan/src/core/extensions/context_x.dart';
 import 'package:jadoo_iclan/src/screens/landing/components/brands_section.dart';
 import 'package:jadoo_iclan/src/screens/landing/components/category_section.dart';
 import 'package:jadoo_iclan/src/screens/landing/components/destinations_section.dart';
@@ -11,18 +12,31 @@ import 'package:jadoo_iclan/src/screens/landing/components/testimonials_section.
 import 'package:jadoo_iclan/src/shared/widgets/footer.dart';
 import 'package:jadoo_iclan/src/shared/widgets/landing_background.dart';
 import 'package:jadoo_iclan/src/shared/widgets/navbar.dart';
+import 'package:jadoo_iclan/src/shared/widgets/navlinks.dart';
 
-class LandingScreen extends StatelessWidget {
+class LandingScreen extends StatefulWidget {
   const LandingScreen({super.key});
+
+  @override
+  State<LandingScreen> createState() => _LandingScreenState();
+}
+
+class _LandingScreenState extends State<LandingScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return LandingBackground(
       child: Scaffold(
+        key: _scaffoldKey,
+        endDrawer: context.isDesktopLayout ? null : const Navlinks(),
         backgroundColor: Colors.transparent,
-        body: ListView.builder(
+        body: ListView.separated(
           itemCount: _widgets.length,
-          padding: EdgeInsets.symmetric(horizontal: 140.w, vertical: 47.h),
+          padding: EdgeInsets.symmetric(
+            horizontal: context.isDesktopLayout ? 140.w : 32.w,
+            vertical: context.isDesktopLayout ? 50.h : 32.h,
+          ),
           itemBuilder: (BuildContext context, int index) {
             return FadeInLeft(
               from: index % 2 == 0 ? -400 : 400,
@@ -32,14 +46,17 @@ class LandingScreen extends StatelessWidget {
               child: _widgets[index],
             );
           },
+          separatorBuilder: (BuildContext context, int index) {
+            return SizedBox(height: 32.h);
+          },
         ),
       ),
     );
   }
 
   List<Widget> get _widgets {
-    return const [
-      Navbar(),
+    return [
+      Navbar(scaffoldKey: _scaffoldKey),
       HeadSection(),
       CategorySection(),
       DestinationsSection(),

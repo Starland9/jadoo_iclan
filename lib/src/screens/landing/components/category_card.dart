@@ -23,6 +23,7 @@ class CategoryCard extends StatelessWidget {
       padding: EdgeInsets.all(30.h),
       margin: EdgeInsets.only(right: 20.w),
       height: 350.h,
+      width: 300.w,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

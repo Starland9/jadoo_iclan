@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jadoo_iclan/gen/assets.gen.dart';
+import 'package:jadoo_iclan/src/core/extensions/context_x.dart';
 import 'package:jadoo_iclan/src/screens/landing/components/destination_card.dart';
 import 'package:jadoo_iclan/src/shared/widgets/sections_head.dart';
 
@@ -30,24 +31,40 @@ class DestinationsSection extends StatelessWidget {
       },
     ];
 
+    final List<Widget> widgets =
+        destinations
+            .map(
+              (destination) => DestinationCard(
+                imagePath: destination["imagePath"],
+                location: destination["location"],
+                daysTrip: destination["daysTrip"],
+                price: destination["price"],
+              ),
+            )
+            .toList();
+
     return Column(
       children: [
         SectionsHead(title: "Top Selling", subtitle: "Top Destinations"),
         SizedBox(height: 50.h),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            for (var destination in destinations)
-              Flexible(
-                child: DestinationCard(
-                  imagePath: destination["imagePath"],
-                  location: destination["location"],
-                  daysTrip: destination["daysTrip"],
-                  price: destination["price"],
-                ),
-              ),
-          ],
-        ),
+        if (context.isDesktopLayout)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children:
+                widgets
+                    .map((Widget widget) => Flexible(child: widget))
+                    .toList(),
+          )
+        else
+          SizedBox(
+            width: double.maxFinite,
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              spacing: 20.w,
+              runSpacing: 20.h,
+              children: widgets.map((Widget widget) => widget).toList(),
+            ),
+          ),
       ],
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jadoo_iclan/gen/assets.gen.dart';
+import 'package:jadoo_iclan/src/core/extensions/context_x.dart';
 import 'package:jadoo_iclan/src/screens/landing/components/category_card.dart';
 import 'package:jadoo_iclan/src/shared/widgets/sections_head.dart';
 
@@ -31,22 +32,29 @@ class CategorySection extends StatelessWidget {
       ),
     ];
 
+    final List<Widget> widgets =
+        categories
+            .map(
+              (category) => CategoryCard(
+                imagePath: category.$1,
+                title: category.$2,
+                body: category.$3,
+              ),
+            )
+            .toList();
+
     return Column(
       children: [
         SectionsHead(title: "CATEGORY", subtitle: "We Offer Best Services"),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            for (final category in categories)
-              Flexible(
-                child: CategoryCard(
-                  imagePath: category.$1,
-                  title: category.$2,
-                  body: category.$3,
-                ),
-              ),
-          ],
-        ),
+        if (context.isDesktopLayout)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: widgets.map((e) => Flexible(child: e)).toList(),
+          )
+        else if (context.isTabletLayout)
+          Wrap(alignment: WrapAlignment.center, children: widgets)
+        else
+          Column(children: widgets),
       ],
     );
   }

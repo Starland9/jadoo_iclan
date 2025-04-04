@@ -12,7 +12,10 @@ class SubscriptionSection extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 80.w, vertical: 80.h),
+          padding:
+              context.isDesktopLayout
+                  ? EdgeInsets.symmetric(horizontal: 80.w, vertical: 80.h)
+                  : EdgeInsets.symmetric(horizontal: 32.w, vertical: 32.h),
           width: double.maxFinite,
           decoration: BoxDecoration(
             color: context.colors.lightPurple.withValues(alpha: 0.2),
@@ -35,25 +38,42 @@ class SubscriptionSection extends StatelessWidget {
               ),
               SizedBox(height: 64.h),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 200.w),
-                child: Row(
-                  children: [
-                    Expanded(child: _buildTextField(context)),
-                    SizedBox(width: 16.w),
-                    _buildGradientButton(),
-                  ],
-                ),
+                padding:
+                    context.isDesktopLayout
+                        ? EdgeInsets.symmetric(horizontal: 200.w)
+                        : context.isTabletLayout
+                        ? EdgeInsets.symmetric(horizontal: 42.w)
+                        : EdgeInsets.zero,
+                child:
+                    !context.isMobileLayout
+                        ? Row(
+                          children: [
+                            Expanded(flex: 3, child: _buildTextField(context)),
+                            SizedBox(width: 16.w),
+                            Expanded(child: _buildGradientButton()),
+                          ],
+                        )
+                        : Column(
+                          children: [
+                            _buildTextField(context),
+                            SizedBox(height: 16.h),
+                            _buildGradientButton(),
+                          ],
+                        ),
               ),
             ],
           ),
         ),
-        Positioned(
-          top: -16.h,
-
-          right: -32.w,
-          child: Assets.images.svg.subscriptionSend.svg(),
-        ),
+        _buildSender(),
       ],
+    );
+  }
+
+  Positioned _buildSender() {
+    return Positioned(
+      top: -16.h,
+      right: -32.w,
+      child: Assets.images.svg.subscriptionSend.svg(),
     );
   }
 
@@ -77,7 +97,7 @@ class SubscriptionSection extends StatelessWidget {
     );
   }
 
-  ElevatedButton _buildGradientButton() {
+  Widget _buildGradientButton() {
     return ElevatedButton(
       onPressed: () {},
       style: ElevatedButton.styleFrom(

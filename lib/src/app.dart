@@ -12,7 +12,12 @@ class JadooApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(1440, 810),
+      designSize:
+          context.isMobileLayout
+              ? Size(375, 812)
+              : context.isTabletLayout
+              ? Size(768, 1024)
+              : Size(1440, 810),
       minTextAdapt: true,
       builder: (_, child) {
         return MaterialApp(
@@ -36,11 +41,10 @@ class JadooApp extends StatelessWidget {
                 backgroundColor: context.colors.buttonBg,
                 foregroundColor: Colors.white,
                 fixedSize: Size.fromHeight(60.h),
+
                 elevation: 0,
-                padding: EdgeInsets.symmetric(horizontal: 30.w),
                 shadowColor: context.colors.buttonBg,
 
-                textStyle: GoogleFonts.poppins(fontSize: 16.sp),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10.r)),
                 ),
